@@ -1,0 +1,12 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "i298jf29NNDJJWJJJEWU922992384u982j23f9iejf",
+    "database": "air",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  }
+}
