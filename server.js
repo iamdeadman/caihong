@@ -13,7 +13,6 @@ var express = require('express'),
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./lib/config/config');
-//var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Bootstrap models
 //var modelsPath = path.join(__dirname, 'lib/models');
@@ -34,7 +33,7 @@ var app = express();
 require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
-db.sequelize.sync({force: true}).complete(function(err) {
+db.sequelize.sync({force: false}).complete(function(err) {
   if (err) {
       debugger;
     throw err[0]

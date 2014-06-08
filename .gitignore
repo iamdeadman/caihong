@@ -9,3 +9,4 @@ dist
 .idea
 *.sublime-project
 *.sublime-workspace
+tasks

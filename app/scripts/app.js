@@ -25,10 +25,33 @@ angular.module('caihongApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/email_confirm/:token*', {
+        resolve: {
+            email_confirm: function ($q, $location, $http, $route) {
+                var deferred = $q.defer();
+                console.log('in first');
+                $http.post('/api/email_confirm/' + $route.current.params.token)
+                    .success(function (data, status, headers, config) {
+                      console.log('in success');
+                      deferred.reject();
+                      $location.url('/home');
+                      // or reject
+                      // or put location first?
+                      // or add a redirectTo
+                    })
+                    .error(function (data, status, headers, config) {
+                      deferred.reject();
+                      $location.url('/home');
+                    });
+                  
+                return deferred.promise;
+            }
+       }
+      })
       .otherwise({
         redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
       
     // Intercept 401s and redirect you to login
