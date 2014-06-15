@@ -17,7 +17,8 @@
     "ejs": "~0.8.4",
     "sequelize": "^1.7.5",
     "pg": "^3.1.0",
-    "nodemailer": "^0.6.5"
+    "nodemailer": "^0.6.5",
+    "nodemailer-strategies": "0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
